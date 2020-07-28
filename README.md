@@ -20,7 +20,8 @@ Install [Windows SDK](https://developer.microsoft.com/en-us/windows/downloads/wi
   * `g++  -std=c++11 -O3 -I$BOOST_INC  -fexpensive-optimizations -Wall -Wextra -o bmd bmd.cpp`
  
 ## Script usage
-* Preprocess raw eye traces `xi.mat` with `preprocess_data.m` to match the isotropy assumption in our generative model (see paper). This writes the output to `xi.txt`.
+* If the starting eye traces do not contain a continuous recording (i.e - they have excluded parts of trials or trials with broken fixation), it is necessary to translocate them such that they form a continuous time series. 
+* `xi.mat do contain continuous recordings`. Preprocess raw eye traces `xi.mat` with `preprocess_data.m` to match the isotropy assumption in our generative model (see paper). This writes the output to `xi.txt`.
 
 * Run BMD inference algorithm, either on the command line or on batch with `./run_BMD_all.sh`
   * `./bmd x1.txt integral_table.txt params1.txt changepoints1.txt >output1.txt`
